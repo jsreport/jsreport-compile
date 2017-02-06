@@ -1,0 +1,50 @@
+{
+  "name": "jsreport-compile",
+  "version": "0.0.1",
+  "description": "Compile jsreport into single executable",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && mocha test --timeout 0"
+  },
+  "homepage": "https://github.com/jsreport/jsreport-compile",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jsreport/jsreport-compile.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jsreport/jsreport-compile/issues"
+  },
+  "keywords": [
+    "jsreport"
+  ],
+  "author": "Jan Blaha",
+  "files": [
+    "lib",
+    "index.js",
+    "jsreport.config.js"
+  ],
+  "bin": {
+    "jsreport-compile": "./bin/compile.js"
+  },
+  "standard": {
+    "ignore": [
+      "build"
+    ],
+    "env": {
+      "node": true,
+      "mocha": true
+    }
+  },
+  "dependencies": {
+    "bluebird": "3.4.7",
+    "emitter": "0.0.5",
+    "nexe": "1.1.2"
+  },
+  "devDependencies": {
+    "eslint": "3.15.0",
+    "jsreport-core": "1.1.0",
+    "mocha": "3.2.0",
+    "should": "11.2.0",
+    "standard": "8.6.0"
+  }
+}
