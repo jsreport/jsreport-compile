@@ -4,7 +4,7 @@
   "description": "Compile jsreport into single executable",
   "main": "index.js",
   "scripts": {
-    "test": "standard && mocha test --timeout 0"
+    "test": "mocha test --timeout 0"
   },
   "homepage": "https://github.com/jsreport/jsreport-compile",
   "repository": {
@@ -43,6 +43,8 @@
   "devDependencies": {
     "eslint": "3.15.0",
     "jsreport-core": "1.1.0",
+    "jsreport-data": "1.0.2",
+    "jsreport-templates": "1.1.0",
     "mocha": "3.2.0",
     "should": "11.2.0",
     "standard": "8.6.0"

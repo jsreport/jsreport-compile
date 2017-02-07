@@ -8,17 +8,18 @@ require('should')
 describe('compilation', function () {
   beforeEach(function () {
     return fs.unlinkAsync(path.join(__dirname, '../jsreport.exe')).catch(function (e) {
-      console.log(e)
     })
   })
 
   it('foo', function () {
     return compile({
       entryPoint: path.join(__dirname, 'entry.js')
-    }).then(function () {
-      spawnSync(path.join(__dirname, '../jsreport.exe'), {
+    }).delay(5000).then(function () {
+      var result = spawnSync(path.join(__dirname, '../jsreport.exe'), {
         cwd: path.join(__dirname, '../')
-      }).output.toString().should.containEql('reporter initialized')
+      })
+
+      result.output.toString().should.containEql('reporter initialized')
     })
   })
 })
