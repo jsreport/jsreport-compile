@@ -6,21 +6,38 @@ var spawnSync = require('child_process').spawnSync
 require('should')
 
 describe('compilation', function () {
-  beforeEach(function () {
-    return fs.unlinkAsync(path.join(__dirname, '../jsreport.exe')).catch(function (e) {
+  before(function () {
+    return fs.unlinkAsync(path.join(__dirname, '../jsreport.exe')).catch(function (e) {}).then(function () {
+      return compile({
+        entryPoint: path.join(__dirname, 'entry.js'),
+        afterInitScript: './test/afterInitScript.js'
+      }).delay(10000)
     })
   })
 
-  it('foo', function () {
-    return compile({
-      entryPoint: path.join(__dirname, 'entry.js')
-    }).delay(5000).then(function () {
-      var result = spawnSync(path.join(__dirname, '../jsreport.exe'), {
-        cwd: path.join(__dirname, '../')
-      })
-
-      result.output.toString().should.containEql('reporter initialized')
+  it('should initialize jsreport', function () {
+    var result = spawnSync(path.join(__dirname, '../jsreport.exe'), {
+      cwd: path.join(__dirname, '../')
     })
+
+    result.output.toString().should.containEql('reporter initialized')
+    result.output.toString().should.containEql('resources work')
+  })
+
+  it('should render none enigne', function () {
+    var result = spawnSync(path.join(__dirname, '../jsreport.exe'), ['run', './test/cases/renderNoneEngine.js'], {
+      cwd: path.join(__dirname, '../')
+    })
+
+    result.output.toString().should.containEql('hello from none engine')
+  })
+
+  it('should render test enigne', function () {
+    var result = spawnSync(path.join(__dirname, '../jsreport.exe'), ['run', './test/cases/renderTestEngine.js'], {
+      cwd: path.join(__dirname, '../')
+    })
+
+    result.output.toString().should.containEql('testEngine')
   })
 })
 
