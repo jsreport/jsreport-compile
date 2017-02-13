@@ -46,4 +46,4 @@ data
 
 build
 jsreport.exe
-startup.js
+jsreportStartup.js

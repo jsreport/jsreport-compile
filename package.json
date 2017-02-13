@@ -4,7 +4,7 @@
   "description": "Compile jsreport into single executable",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test --timeout 6000000"
+    "test": "mocha test/test.js --timeout 20000"
   },
   "homepage": "https://github.com/jsreport/jsreport-compile",
   "repository": {
@@ -21,7 +21,8 @@
   "files": [
     "lib",
     "index.js",
-    "jsreport.config.js"
+    "bin",
+    "defaultEntry.js"    
   ],
   "bin": {
     "jsreport-compile": "./bin/compile.js"
@@ -37,13 +38,15 @@
   },
   "dependencies": {
     "bluebird": "3.4.7",
+    "debug": "2.6.0",
     "emitter": "0.0.5",
-    "nexe": "1.1.2"
+    "jsreport-nexe": "1.2.0", 
+    "yargs": "6.6.0"
   },
   "devDependencies": {
     "eslint": "3.15.0",
     "fs-extra": "2.0.0",
-    "jsreport-core": "1.1.0",   
+    "jsreport-core": "1.2.0-beta",       
     "mocha": "3.2.0",
     "should": "11.2.0",
     "standard": "8.6.0"

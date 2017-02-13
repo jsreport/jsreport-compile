@@ -2,42 +2,49 @@ var path = require('path')
 var compile = require('../lib/compile')
 var Promise = require('bluebird')
 var fs = Promise.promisifyAll(require('fs'))
-var spawnSync = require('child_process').spawnSync
+
 require('should')
 
 describe('compilation', function () {
+  var jsreport
+
   before(function () {
-    return fs.unlinkAsync(path.join(__dirname, '../jsreport.exe')).catch(function (e) {}).then(function () {
+    return fs.unlinkAsync(path.join(__dirname, 'bundle.js')).catch(function (e) {}).then(function () {
       return compile({
-        entryPoint: path.join(__dirname, 'entry.js'),
-        afterInitScript: './test/afterInitScript.js'
-      }).delay(10000)
+        input: 'test/entry.js',
+        output: 'test/bundle.js',
+        bundle: true
+      })
+    }).then(function () { 
+      return require('./bundle.js').then(function (instance) {
+        console.log('grapping instance from bundle')
+        jsreport = instance
+      })
     })
   })
 
-  it('should initialize jsreport', function () {
-    var result = spawnSync(path.join(__dirname, '../jsreport.exe'), {
-      cwd: path.join(__dirname, '../')
-    })
-
-    result.output.toString().should.containEql('reporter initialized')
-    result.output.toString().should.containEql('resources work')
+  it('should initialize jsreport isntance', function () {
+    jsreport.render.should.be.ok()
   })
 
-  it('should render none enigne', function () {
-    var result = spawnSync(path.join(__dirname, '../jsreport.exe'), ['run', './test/cases/renderNoneEngine.js'], {
-      cwd: path.join(__dirname, '../')
+  it('should discover and include engines', function () {
+    return jsreport.render({
+      template: {
+        content: 'foo',
+        engine: 'test',
+        recipe: 'html'
+      }
+    }).then(function (res) {
+      res.content.toString().should.be.eql('test:foo')
     })
-
-    result.output.toString().should.containEql('hello from none engine')
   })
 
-  it('should render test enigne', function () {
-    var result = spawnSync(path.join(__dirname, '../jsreport.exe'), ['run', './test/cases/renderTestEngine.js'], {
-      cwd: path.join(__dirname, '../')
-    })
+  it('should compile and get resources', function () {
+    jsreport.test.resource.toString().should.be.eql('foo')
+  })
 
-    result.output.toString().should.containEql('testEngine')
+  it('should include and resolve specified modules', function () {
+    jsreport.test.include.should.be.eql('external')
   })
 })
 

@@ -1,1 +1,1 @@
-module.exports.compile = require('./lib/compile')
+module.exports = require('./lib/compile')
