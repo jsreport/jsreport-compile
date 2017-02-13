@@ -26,6 +26,6 @@ if (argv.bundle && argv.output === 'jsreport.exe') {
   argv.output = 'jsreport.js'
 }
 
-require('../')(argv).then(function () {
+require('../')(argv).finally(function () {
   process.exit()
 })
