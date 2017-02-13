@@ -47,3 +47,4 @@ data
 build
 jsreport.exe
 jsreportStartup.js
+bundle.js
