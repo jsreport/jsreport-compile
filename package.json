@@ -1,6 +1,6 @@
 {
   "name": "jsreport-compile",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Compile jsreport into single executable",
   "main": "index.js",
   "scripts": {
