@@ -1,5 +1,6 @@
+process.env.jsreportTest = true
 var path = require('path')
-var compile = require('../lib/compile')
+var compile = require('../')
 var Promise = require('bluebird')
 var fs = Promise.promisifyAll(require('fs'))
 
@@ -13,11 +14,11 @@ describe('compilation', function () {
       return compile({
         input: 'test/entry.js',
         output: 'test/bundle.js',
-        bundle: true
+        bundle: true,
+        handleArguments: false
       })
-    }).then(function () { 
-      return require('./bundle.js').then(function (instance) {
-        console.log('grapping instance from bundle')
+    }).then(function () {
+      return require('./bundle.js').init().then(function (instance) {
         jsreport = instance
       })
     })
