@@ -47,5 +47,10 @@ describe('compilation', function () {
   it('should include and resolve specified modules', function () {
     jsreport.test.include.should.be.eql('external')
   })
+
+  it('should compile and get resource directory in temp', function () {
+    return fs.readFileAsync(path.join(jsreport.test.resourceFolder, 'innerFolder', 'deep.txt'))
+      .then((content) => content.toString().should.be.eql('foo'))
+  })
 })
 
