@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 var defaultOutput = 'jsreport'
 
 if (process.platform === 'win32') {
