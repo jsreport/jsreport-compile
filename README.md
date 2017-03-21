@@ -4,7 +4,7 @@
 
 > Compile jsreport into single executable
 
-##Usage
+## Usage
 
 ```bash
 npm install jsreport
