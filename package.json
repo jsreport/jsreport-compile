@@ -48,6 +48,8 @@
     "object-assign": "4.1.1",
     "recursive-readdir": "2.1.1",
     "shortid": "2.2.8",
+    "silent-spawn": "0.4.0",
+    "winser-with-api": "1.0.0",
     "yargs": "6.6.0"
   },
   "devDependencies": {
