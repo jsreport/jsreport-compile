@@ -45,6 +45,7 @@ studio/main.js.map
 data
 
 build
+build-runtime
 jsreport.exe
 jsreportStartup.js
 bundle.js
