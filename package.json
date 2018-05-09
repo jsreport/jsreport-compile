@@ -42,7 +42,7 @@
     "bubleify": "0.7.0",
     "debug": "2.6.3",
     "emitter": "0.0.5",
-    "jsreport-cli": "2.0.0",
+    "jsreport-cli": "2.0.1",
     "jsreport-core": "2.0.0",
     "jsreport-nexe": "github:jsreport/nexe",
     "lodash.omit": "4.5.0",
