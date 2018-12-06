@@ -53,4 +53,3 @@ describe('compilation', function () {
       .then((content) => content.toString().should.be.eql('foo'))
   })
 })
-
