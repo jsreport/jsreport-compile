@@ -43,7 +43,7 @@
     "debug": "2.6.3",
     "emitter": "0.0.5",
     "jsreport-cli": "2.0.6",
-    "jsreport-core": "2.4.3",
+    "jsreport-core": "github:jsreport/jsreport-core",
     "jsreport-nexe": "github:jsreport/nexe",
     "lodash.omit": "4.5.0",
     "mkdirp": "0.5.1",
