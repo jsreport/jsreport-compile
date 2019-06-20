@@ -1,12 +1,18 @@
 #!/usr/bin/env node
-var defaultOutput = 'jsreport'
+let defaultOutput = 'jsreport'
 
 if (process.platform === 'win32') {
   defaultOutput = 'jsreport.exe'
 }
 
-var argv = require('yargs')
-    .usage('Usage: $0 -i [server.js] -o [jsreport.exe]')
+const argv = require('yargs')
+    .usage(`Usage: $0 -i [server.js] -o [${defaultOutput}]`)
+    .options('d', {
+      alias: 'debug',
+      type: 'boolean',
+      default: false,
+      desc: 'Enables debugging mode which includes more logs and does not delete intermediate startup script'
+    })
     .options('i', {
       demand: true,
       alias: 'input',
@@ -14,24 +20,20 @@ var argv = require('yargs')
       default: 'server.js'
     }).options('o', {
       alias: 'output',
-      desc: 'The output binary or bundle file',
+      desc: 'The output binary',
       default: defaultOutput
-    }).options('b', {
-      alias: 'bundle',
-      default: false,
-      desc: 'Only bundle entry into single js file which can be used for quicker testing'
     })
     .help()
     .example('$0')
     .example('$0 -i startup.js -o ' + defaultOutput)
-    .example('$0 -b -i startup.js -o jsreport.js')
-    .example('$0 -b')
     .argv
 
-if (argv.bundle && argv.output === defaultOutput) {
-  argv.output = 'jsreport.js'
-}
-
-require('../')(argv).finally(function () {
-  process.exit()
+require('../')(argv).then(() => exit()).catch((err) => {
+  console.error('Error while trying to compile:')
+  console.error(err)
+  exit(1)
 })
+
+function exit (exitCode) {
+  process.exit(exitCode)
+}

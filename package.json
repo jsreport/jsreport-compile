@@ -38,16 +38,13 @@
   },
   "dependencies": {
     "acorn": "5.5.0",
-    "bluebird": "3.5.4",
     "bubleify": "0.7.0",
     "debug": "2.6.3",
     "emitter": "0.0.5",
-    "jsreport-cli": "github:jsreport/jsreport-cli#extensions-commands",
-    "jsreport-core": "github:jsreport/jsreport-core",
-    "jsreport-nexe": "github:jsreport/nexe",
     "lodash.omit": "4.5.0",
     "mkdirp": "0.5.1",
     "object-assign": "4.1.1",
+    "pkg": "4.4.0",
     "recursive-readdir": "2.2.2",
     "rimraf": "2.6.3",
     "shortid": "2.2.8",
@@ -58,6 +55,8 @@
   "devDependencies": {
     "eslint": "3.19.0",
     "fs-extra": "2.1.2",
+    "jsreport-cli": "github:jsreport/jsreport-cli",
+    "jsreport-core": "github:jsreport/jsreport-core",
     "mocha": "3.2.0",
     "should": "11.2.1",
     "standard": "8.6.0"

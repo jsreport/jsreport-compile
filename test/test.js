@@ -1,8 +1,11 @@
 process.env.jsreportTest = true
+
+var util = require('util')
 var path = require('path')
+var fs = require('fs')
 var compile = require('../')
-var Promise = require('bluebird')
-var fs = Promise.promisifyAll(require('fs'))
+var unlinkAsync = util.promisify(fs.unlink)
+var readFileAsync = util.promisify(fs.readFile)
 
 require('should')
 
@@ -10,7 +13,7 @@ describe('compilation', function () {
   var jsreport
 
   before(function () {
-    return fs.unlinkAsync(path.join(__dirname, 'bundle.js')).catch(function (e) {}).then(function () {
+    return unlinkAsync(path.join(__dirname, 'bundle.js')).catch(function (e) {}).then(function () {
       return compile({
         input: 'test/entry.js',
         output: 'test/bundle.js',
@@ -49,7 +52,7 @@ describe('compilation', function () {
   })
 
   it('should compile and get resource directory in temp', function () {
-    return fs.readFileAsync(path.join(jsreport.test.resourceFolder, 'innerFolder', 'deep.txt'))
+    return readFileAsync(path.join(jsreport.test.resourceFolder, 'innerFolder', 'deep.txt'))
       .then((content) => content.toString().should.be.eql('foo'))
   })
 })
