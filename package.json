@@ -21,8 +21,7 @@
   "files": [
     "lib",
     "index.js",
-    "bin",
-    "defaultEntry.js"
+    "bin"
   ],
   "bin": {
     "jsreport-compile": "./bin/compile.js"
@@ -41,11 +40,9 @@
     "bubleify": "0.7.0",
     "debug": "2.6.3",
     "emitter": "0.0.5",
-    "lodash.omit": "4.5.0",
     "mkdirp": "0.5.1",
     "object-assign": "4.1.1",
     "pkg": "4.4.0",
-    "recursive-readdir": "2.2.2",
     "rimraf": "2.6.3",
     "shortid": "2.2.8",
     "silent-spawn": "0.4.0",
