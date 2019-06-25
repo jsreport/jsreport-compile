@@ -45,7 +45,6 @@
     "pkg": "4.4.0",
     "rimraf": "2.6.3",
     "shortid": "2.2.8",
-    "silent-spawn": "0.4.0",
     "winser-with-api": "1.0.1",
     "yargs": "6.6.0"
   },
