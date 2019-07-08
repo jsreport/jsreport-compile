@@ -41,7 +41,7 @@
     "debug": "2.6.3",
     "mkdirp": "0.5.1",
     "object-assign": "4.1.1",
-    "pkg": "4.4.0",
+    "pkg": "github:bjrmatos/pkg",
     "rimraf": "2.6.3",
     "shortid": "2.2.8",
     "winser-with-api": "1.0.1",
