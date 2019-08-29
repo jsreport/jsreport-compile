@@ -23,6 +23,11 @@ const argv = require('yargs')
       desc: 'The output binary',
       default: defaultOutput
     })
+    .options('n', {
+      alias: 'nodeVersion',
+      desc: 'The node version to compile against with',
+      default: '10'
+    })
     .help()
     .example('$0')
     .example('$0 -i startup.js -o ' + defaultOutput)
