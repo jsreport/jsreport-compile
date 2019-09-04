@@ -48,4 +48,6 @@ build
 build-runtime
 jsreport.exe
 jsreportStartup.js
+jsreportPkgConfig.json
 bundle.js
+test/exe
