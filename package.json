@@ -1,10 +1,10 @@
 {
   "name": "jsreport-compile",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "description": "Compile jsreport into single executable",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/test.js --timeout 40000"
+    "test": "mocha test/test.js --timeout 45000"
   },
   "homepage": "https://github.com/jsreport/jsreport-compile",
   "repository": {
