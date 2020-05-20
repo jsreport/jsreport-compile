@@ -51,8 +51,8 @@
   "devDependencies": {
     "eslint": "3.19.0",
     "fs-extra": "2.1.2",
-    "jsreport-cli": "2.2.0",
-    "jsreport-core": "2.7.0",
+    "jsreport-cli": "2.2.3",
+    "jsreport-core": "2.8.1",
     "mocha": "3.2.0",
     "should": "11.2.1",
     "standard": "8.6.0"
