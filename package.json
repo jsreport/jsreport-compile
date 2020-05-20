@@ -41,7 +41,7 @@
     "bubleify": "0.7.0",
     "debug": "2.6.3",
     "lockfile": "1.0.4",
-    "mkdirp": "0.5.1",
+    "mkdirp": "0.5.5",
     "object-assign": "4.1.1",
     "rimraf": "2.6.3",
     "shortid": "2.2.8",
